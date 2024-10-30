@@ -63,6 +63,11 @@ flutter:
     - assets\images\logoSBoys.png
     - assets\images\savechange.png
     - assets\images\shopmenu.png
+    - assets\images\delsucess.png
+    - assets\images\wel1.png
+    - assets\images\wel2.png
+    - assets\images\wel3.png
+    
 
     
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/deliveryman/del%20dashboard/del_dashboard.dart';
 import 'package:soupboys/logo/logo.dart';
 import 'package:soupboys/logo/logo_image.dart';
 
@@ -107,7 +108,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                 onPressed: () {
                 // Use context from the build method
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) =>  DashboardPage()),
+                  MaterialPageRoute(builder: (_) => const  DelDashboard()),
                 );
               },
                 style: ElevatedButton.styleFrom(

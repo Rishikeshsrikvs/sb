@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/deliveryman/del%20account/del_accountdetails.dart';
 
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopprofile/shop_SettingsPage.dart';
 
-import 'shop_AccountDetails.dart';
-import 'shop_history.dart';
-import 'shop_menumange.dart';
-import 'shopabout/about_page.dart';
 
-class Profileshop extends StatelessWidget {
-  const Profileshop ({super.key});
+
+import 'delabout/about_page.dart';
+
+class DelProfile extends StatelessWidget {
+  const DelProfile ({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: Color(0xFF660066),
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor: Color(0xFF660066),
         elevation: 0,
         actions: [
           IconButton(
@@ -47,9 +47,6 @@ class Profileshop extends StatelessWidget {
         GestureDetector(
           onTap: () {
             // Navigate to the profile page
-                          Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) =>  ShopkeeperLoginPage()),
-                );
           
           },
           child: CircleAvatar(
@@ -81,7 +78,7 @@ class Profileshop extends StatelessWidget {
                     onTap: () {
                        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => AccountDetailsScreen()), // Replace with your actual profile page widget
+          MaterialPageRoute(builder: (context) => DelAccountdetails()), // Replace with your actual profile page widget
         );
                     },
                   ),
@@ -89,7 +86,7 @@ class Profileshop extends StatelessWidget {
               ),
             ),
              const SizedBox(height: 20),
-            // "Others" section
+        
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -97,41 +94,7 @@ class Profileshop extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: const Icon(Icons.menu, color: Colors.red),
-                    title: const Text("Menu Management"),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>const MenuManagementPage()), // Replace with your actual profile page widget
-                      );
-                    },
-                  ),
-                   const Divider(height: 1),
-                  ListTile(
-                    leading: const Icon(Icons.payment, color: Colors.red),
-                    title: const Text("Payment History"),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PaymentHistoryScreen()), // Replace with your actual profile page widget
-                        );// Handle navigation
-                    },
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            // "More" section
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.info),
+                    leading:const Icon(Icons.info),
                     title: const Text("About"),
                     trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: () {

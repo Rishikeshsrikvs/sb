@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:soupboys/logo/logo.dart';
 
 
-import 'package:soupboys/shopkeeper/shoplogin/Shopkeeper_login.dart';
+import 'package:soupboys/splashscreen/welcomescreen.dart';
 
 class Getstarted extends StatelessWidget {
   const Getstarted({super.key});
@@ -20,7 +20,7 @@ class Getstarted extends StatelessWidget {
               onPressed: () {
                 // Use context from the build method
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => const ShopkeeperLoginPage()),
+                  MaterialPageRoute(builder: (_) =>  Welcomescreen()),
                 );
               },
               style: TextButton.styleFrom(
