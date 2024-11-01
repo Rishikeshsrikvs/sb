@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/admin/ad%20dashboard/ad_dashboard.dart';
 import 'package:soupboys/deliveryman/del%20dashboard/del_dashboard.dart';
-import 'package:soupboys/logo/logo.dart';
 import 'package:soupboys/logo/logo_image.dart';
 
 
-import '../shopdashboard/Shop_dashboard.dart';
+
 import 'shopkeeper_creation.dart';
 
 class ShopkeeperLoginPage extends StatefulWidget {
@@ -108,7 +108,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                 onPressed: () {
                 // Use context from the build method
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => const  DelDashboard()),
+                  MaterialPageRoute(builder: (_) => const  AdDashboard()),
                 );
               },
                 style: ElevatedButton.styleFrom(

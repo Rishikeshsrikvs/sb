@@ -20,7 +20,7 @@ class _DelDashboard extends State<DelDashboard> {
   // List of pages corresponding to each tab
   final List<Widget> _pages = [
    
-   const DelHome(),
+   const DelHome (),
     const DelOrders(),
     const DelEarnings(),
   ];

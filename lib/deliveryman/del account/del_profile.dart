@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soupboys/deliveryman/del%20account/del_accountdetails.dart';
+import 'package:soupboys/deliveryman/del%20account/del_update.dart';
 
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopprofile/shop_SettingsPage.dart';
@@ -47,6 +48,9 @@ class DelProfile extends StatelessWidget {
         GestureDetector(
           onTap: () {
             // Navigate to the profile page
+             Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => DelUpdate()),
+                );
           
           },
           child: CircleAvatar(
@@ -78,7 +82,7 @@ class DelProfile extends StatelessWidget {
                     onTap: () {
                        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DelAccountdetails()), // Replace with your actual profile page widget
+          MaterialPageRoute(builder: (context) =>const DelAccountdetails()), // Replace with your actual profile page widget
         );
                     },
                   ),

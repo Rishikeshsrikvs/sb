@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopprofile/shop_SettingsPage.dart';
+import 'package:soupboys/shopkeeper/shopprofile/shop_update.dart';
 
 import 'shop_AccountDetails.dart';
 import 'shop_history.dart';
@@ -48,7 +49,7 @@ class Profileshop extends StatelessWidget {
           onTap: () {
             // Navigate to the profile page
                           Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) =>  ShopkeeperLoginPage()),
+                  MaterialPageRoute(builder: (_) =>  ShopUpdate()),
                 );
           
           },
