@@ -12,7 +12,9 @@ class AdReview extends StatelessWidget {
         title: Text("Reviews", style: TextStyle(color: Colors.white)),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {}, // Define back button behavior
+          onPressed: () {
+              Navigator.pop(context);
+          }, // Define back button behavior
         ),
       ),
       body: Padding(

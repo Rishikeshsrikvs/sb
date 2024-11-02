@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shoplogin/Shopkeeper_login.dart';
+import 'package:soupboys/user/login/us_welcome.dart';
 
 class Welcomescreen extends StatefulWidget {
   @override
@@ -66,25 +67,25 @@ class _WelcomescreenState extends State<Welcomescreen> {
               onPressed: () {
                 if (_currentPage < 2) {
                   _pageController.nextPage(
-                    duration: Duration(milliseconds: 300),
+                    duration:const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );
                 } else {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) =>  ShopkeeperLoginPage()),
+                  MaterialPageRoute(builder: (_) => const WelcomeLoginPage()),
                 );// Navigate to next screen or perform another action
                 }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightGreen, // Updated property
-                minimumSize: Size(double.infinity, 48),
+                minimumSize:const  Size(double.infinity, 48),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
               child: Text(
                 _currentPage < 2 ? 'Next' : 'Get Started',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style:const TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
           ),
@@ -92,7 +93,7 @@ class _WelcomescreenState extends State<Welcomescreen> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) =>  ShopkeeperLoginPage()),
+                  MaterialPageRoute(builder: (_) => const WelcomeLoginPage()),
                 ); // Handle skip action
             },
             child: const Text(

@@ -4,6 +4,7 @@ import 'package:soupboys/admin/ad%20account/ad_deliverymange.dart';
 import 'package:soupboys/admin/ad%20account/ad_review.dart';
 import 'package:soupboys/admin/ad%20account/ad_shopmanage.dart';
 import 'package:soupboys/admin/ad%20account/ad_update.dart';
+import 'package:soupboys/admin/ad%20account/ad_usermanage.dart';
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopprofile/shop_SettingsPage.dart';
 import 'delabout/about_page.dart';
@@ -119,6 +120,10 @@ class AdProfile extends StatelessWidget {
                   title: "User Management",
                   onTap: () {
                     // Navigate to User Management
+                                         Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AdUsermanage()),
+                      );
                   },
                 ),
               ],
