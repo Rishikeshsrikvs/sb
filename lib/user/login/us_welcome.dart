@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:soupboys/logo/logo_image.dart';
+import 'package:soupboys/shopkeeper/shoplogin/Shopkeeper_login.dart';
 import 'package:soupboys/user/login/us_login.dart';
 import 'package:soupboys/user/login/us_signup.dart';
+// Import the admin login page
 
-// Import your custom logo widget
 class WelcomeLoginPage extends StatefulWidget {
   const WelcomeLoginPage({super.key});
 
@@ -51,7 +52,7 @@ class _WelcomeLoginPageState extends State<WelcomeLoginPage> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      LogoImage(height: 100, width: 100)
+                      LogoImage(height: 100, width: 100),
                     ],
                   ),
                   const SizedBox(height: 20),
@@ -86,11 +87,10 @@ class _WelcomeLoginPageState extends State<WelcomeLoginPage> {
                     width: 300,
                     child: OutlinedButton(
                       onPressed: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const UsSignup()),
                         );
-                        // Implement sign-up functionality or navigation here
                       },
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
@@ -108,6 +108,23 @@ class _WelcomeLoginPageState extends State<WelcomeLoginPage> {
                           fontSize: 14,
                           color: Colors.lightGreen,
                         ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ShopkeeperLoginPage()),
+                      );
+                    },
+                    child: const Text(
+                      'Admin Login',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue,
+                       
                       ),
                     ),
                   ),

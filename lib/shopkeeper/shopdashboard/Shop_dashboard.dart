@@ -7,15 +7,15 @@ import 'shoporder/shop_orders.dart';
 // import 'orders_page.dart';
 // import 'earnings_page.dart';
 
-class DashboardPage extends StatefulWidget {
- const DashboardPage({super.key});
+class ShopDashboard extends StatefulWidget {
+ const ShopDashboard({super.key});
     @override
-  State<DashboardPage> createState() {
+  State<ShopDashboard> createState() {
     return _DashboardPage();
   }
 }
 
-class _DashboardPage extends State<DashboardPage> {
+class _DashboardPage extends State<ShopDashboard> {
   int _selectedIndex = 0;
 
   // List of pages corresponding to each tab

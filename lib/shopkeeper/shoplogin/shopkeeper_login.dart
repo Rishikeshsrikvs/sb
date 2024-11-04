@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:soupboys/admin/ad%20dashboard/ad_dashboard.dart';
 import 'package:soupboys/deliveryman/del%20dashboard/del_dashboard.dart';
+
 import 'package:soupboys/logo/logo_image.dart';
-
-
+import 'package:soupboys/shopkeeper/shopdashboard/Shop_dashboard.dart';
 
 import 'shopkeeper_creation.dart';
 
@@ -18,6 +18,31 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
+
+  void _login() {
+    // Simulated user role for testing
+    String role = 'deliveryboy'; // Change this to 'deliveryboy' or 'shopkeeper' to test other cases
+
+    // Navigate based on the hardcoded role
+    if (role == 'admin') {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const AdDashboard()),
+      );
+    } else if (role == 'deliveryboy') {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const DelDashboard()),
+      );
+    } else if (role == 'shopkeeper') {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const ShopDashboard()),
+      );
+    } else {
+      // Handle invalid role case (if necessary)
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Invalid role or user')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +77,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  AccountCreationPage(),
+                          builder: (context) => AccountCreationPage(),
                         ),
                       );
                     },
@@ -64,8 +89,6 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                 ],
               ),
               const SizedBox(height: 20),
-
-              // Wrap the input fields in a container with a white background
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -79,7 +102,6 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                       hintText: "shopkeeper@gmail.com",
                       icon: Icons.email,
                     ),
-                    
                     _buildTextField(
                       controller: passwordController,
                       hintText: "********",
@@ -89,7 +111,6 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.center,
@@ -105,12 +126,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                // Use context from the build method
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => const  AdDashboard()),
-                );
-              },
+                onPressed: _login,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   padding: const EdgeInsets.symmetric(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/history_widgets/history_screen.dart';
 import 'package:soupboys/user/home/fav/favourites_page.dart';
 import 'package:soupboys/user/home/us_home.dart';
 import 'package:soupboys/user/home/widgets/bottom_navigation_widget.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const UsHome(),        // Home page
     FavoritesScreen(),     // Favorites page
-    const UsHome(),        // Settings page (for example purposes)
+    const OrderHistoryScreen(),        // Settings page (for example purposes)
   ];
 
   void _onItemTapped(int index) {

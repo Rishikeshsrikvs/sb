@@ -118,12 +118,12 @@ class _WelcomescreenState extends State<Welcomescreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacer(flex: 2),
-          LogoImage(height:60, width: 60), // Logo at the top
-          SizedBox(height: 16),
+          const Spacer(flex: 2),
+          const  LogoImage(height:60, width: 60), // Logo at the top
+          const SizedBox(height: 16),
           Text(
             title,
-            style: TextStyle(
+            style:const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.black,

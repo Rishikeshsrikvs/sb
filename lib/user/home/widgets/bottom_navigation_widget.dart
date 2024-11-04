@@ -15,16 +15,20 @@ class BottomNavigationWidget extends StatelessWidget {
     return BottomNavigationBar(
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.history),
+          label: 'History',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Profile',
+          label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
+          icon: Icon(Icons.favorite),
+          label: 'Favorite',
+        ),
+         BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart),
+          label: 'Cart',
         ),
       ],
       currentIndex: currentIndex,      // Highlight the selected tab
