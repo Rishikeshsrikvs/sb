@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/home/profile/ussetting/us_deletesettings.dart';
+import 'package:soupboys/user/home/profile/ussetting/us_notificationsettings.dart';
 
-import 'delsetting/del_notificationsettingspage.dart';
-import 'delsetting/del_settingdelete.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+
+class UsSetting extends StatelessWidget {
+  const UsSetting({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  const Color(0xFF660066),
+      backgroundColor: Colors.blue.shade600,
       appBar: AppBar(
-        backgroundColor:  const Color(0xFF660066),
+        backgroundColor: Colors.blue.shade600,
         elevation: 0,
         title: const Text(
           'Settings',
@@ -31,29 +32,29 @@ class SettingsPage extends StatelessWidget {
               'Notification Settings',
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
-            trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
+            trailing: Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
             onTap: () {
                Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const NotificationSettingsPage()), // Replace with your actual profile page widget
+                          MaterialPageRoute(builder: (context) => UsNotificationsettings()), // Replace with your actual profile page widget
                         );
             },
           ),
-          const Divider(color: Colors.white70, thickness: 0.5),
+          Divider(color: Colors.white70, thickness: 0.5),
           ListTile(
             title: const Text(
               'Account Settings',
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
-            trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
+            trailing: Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
             onTap: () {
                Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SettingDelete()), // Replace with your actual profile page widget
+                          MaterialPageRoute(builder: (context) => UsDeletesettings()), // Replace with your actual profile page widget
                         );
             },
           ),
-          const Divider(color: Colors.white70, thickness: 0.5),
+          Divider(color: Colors.white70, thickness: 0.5),
         ],
       ),
     );

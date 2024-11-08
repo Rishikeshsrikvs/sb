@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-class NotificationSettingsPage extends StatefulWidget {
-  const NotificationSettingsPage ({super.key});
+class UsNotificationsettings extends StatefulWidget {
+  const UsNotificationsettings ({super.key});
   @override
-  // ignore: library_private_types_in_public_api
-  _NotificationSettingsPageState createState() => _NotificationSettingsPageState();
+  _UsNotificationsettings createState() => _UsNotificationsettings();
 }
 
-class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
+class _UsNotificationsettings extends State<UsNotificationsettings> {
   bool enableAll = false;
   bool mobileNotifications = false;
   bool emailNotifications = false;
@@ -73,7 +72,52 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
 }
 
 
- 
+  // void _showSaveConfirmationDialog() {
+  //   showDialog(
+  //     context: context,
+  //     barrierDismissible: false,
+  //     builder: (BuildContext context) {
+  //       return Dialog(
+  //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  //         backgroundColor: Colors.green.shade900,
+  //         child: Padding(
+  //           padding: const EdgeInsets.all(20.0),
+  //           child: Column(
+  //             mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               const Icon(
+  //                 Icons.check_circle,
+  //                 color: Colors.white,
+  //                 size: 80,
+  //               ),
+  //               const SizedBox(height: 20),
+  //               const Text(
+  //                 'Changes Saved Successfully!',
+  //                 textAlign: TextAlign.center,
+  //                 style: TextStyle(color: Colors.white, fontSize: 16),
+  //               ),
+  //               const SizedBox(height: 20),
+  //               ElevatedButton(
+  //                 style: ElevatedButton.styleFrom(
+  //                   backgroundColor: Colors.orange,
+  //                   padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
+  //                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+  //                 ),
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop();
+  //                 },
+  //                 child: const Text(
+  //                   'OK',
+  //                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

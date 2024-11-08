@@ -3,32 +3,31 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'language_page.dart';
-import 'terms_of_service_page.dart';
+import 'us_language.dart';
+import 'us_terms.dart';
 
-class ShopAboutPage extends StatelessWidget {
-   const ShopAboutPage ({super.key});
+class UsAbout extends StatelessWidget {
+  const UsAbout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: const Color(0xFFA4D40E),
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor: const Color(0xFFA4D40E),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {},
         ),
-        title: Text('About', style: TextStyle(color: Colors.black)),
+        title: const Text('About', style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'VERSION 4.25',
               style: TextStyle(
                 fontSize: 24,
@@ -36,30 +35,30 @@ class ShopAboutPage extends StatelessWidget {
                 color: Colors.red,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ListTile(
-              title: Text('Choose Language'),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title: const Text('Choose Language'),
+              trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LanguagePage()),
+                  MaterialPageRoute(builder: (context) => UsLanguage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Terms Of Service'),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title: const Text('Terms Of Service'),
+              trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TermsOfServicePage()),
+                  MaterialPageRoute(builder: (context) => UsTerms()),
                 );
               },
             ),
             ListTile(
-              title: Text('Rate The App'),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title: const Text('Rate The App'),
+              trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 // Show the rating dialog when tapped
                 showDialog(
@@ -76,7 +75,6 @@ class ShopAboutPage extends StatelessWidget {
 }
 
 class RateAppDialog extends StatelessWidget {
-   const RateAppDialog ({super.key});
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -89,7 +87,7 @@ class RateAppDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-           const Text(
+            const Text(
               'Rate the APP',
               style: TextStyle(
                 color: Colors.white,
@@ -108,7 +106,8 @@ class RateAppDialog extends StatelessWidget {
                 );
               }),
             ),
-                Row(
+            const SizedBox(height: 20),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
@@ -119,18 +118,18 @@ class RateAppDialog extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child:const Text('BACK'),
+                  child: const Text('BACK'),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.blue.shade600,
+                    backgroundColor: const Color(0xFFA4D40E),
                     foregroundColor: Colors.white, // Set text color to white
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();
                     // Add submit functionality here if needed
                   },
-                  child:const Text('SUBMIT'),
+                  child: const Text('SUBMIT'),
                 ),
               ],
             ),

@@ -30,19 +30,19 @@ class _FavoritesScreenState extends State<FavoritesScreen>
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
         elevation: 0,
-        title: Text("Favourites", style: TextStyle(color: Colors.black)),
+        title: const Text("Favourites", style: TextStyle(color: Colors.black)),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
+          preferredSize: const Size.fromHeight(50.0),
           child: Container(
             color: Colors.lightGreen,
             child: TabBar(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               controller: _tabController,
               indicator: BoxDecoration(
                 color: Colors.teal[900], // Dark background for the selected tab
@@ -50,7 +50,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
               ),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.black,
-              tabs: [
+              tabs: const [
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                   child: Tab(text: "RESTAURANT"),
@@ -77,7 +77,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 5,
@@ -119,8 +119,8 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         color: Colors.lightGreen.shade100,
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      padding: EdgeInsets.all(5),
-                      child: Column(
+                      padding: const EdgeInsets.all(5),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
@@ -146,11 +146,11 @@ class _FavoritesScreenState extends State<FavoritesScreen>
             child: ListView(
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 5,
@@ -202,7 +202,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                           Row(
                             children: [
                               IconButton(
-                                icon: Icon(Icons.remove_circle_outline),
+                                icon: const Icon(Icons.remove_circle_outline),
                                 onPressed: () {},
                               ),
                               const Text("1"),
@@ -219,7 +219,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
                               ),
                               child:const Text("Add To Cart"),
                             ),

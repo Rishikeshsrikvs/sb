@@ -14,9 +14,9 @@ class DelProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF660066),
+      backgroundColor: const Color(0xFF660066),
       appBar: AppBar(
-        backgroundColor: Color(0xFF660066),
+        backgroundColor: const Color(0xFF660066),
         elevation: 0,
         actions: [
           IconButton(
@@ -112,7 +112,7 @@ class DelProfile extends StatelessWidget {
                   ListTile(
                     leading: const Icon(Icons.settings),
                     title: const Text("Settings"),
-                    trailing: Icon(Icons.arrow_forward_ios),
+                    trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: () {
                       Navigator.push(
                           context,

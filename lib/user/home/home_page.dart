@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/cart/us_cart.dart';
 import 'package:soupboys/user/history_widgets/history_screen.dart';
 import 'package:soupboys/user/home/fav/favourites_page.dart';
 import 'package:soupboys/user/home/us_home.dart';
@@ -17,9 +18,11 @@ class _HomePageState extends State<HomePage> {
 
   // List of pages for each tab
   final List<Widget> _pages = [
+    const OrderHistoryScreen(), 
     const UsHome(),        // Home page
     FavoritesScreen(),     // Favorites page
-    const OrderHistoryScreen(),        // Settings page (for example purposes)
+    
+    CartScreen()   ,    // Settings page (for example purposes)
   ];
 
   void _onItemTapped(int index) {
@@ -31,13 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _selectedIndex == 1 // Check if FavoritesScreen is active
-          ? null // No AppBar for FavoritesScreen
-          : AppBar(
-              backgroundColor: Colors.white,
-              toolbarHeight: 90,  // Set a custom height for the AppBar
-              title: HeaderWidget(), // Custom Header
-            ),
+      
       body: IndexedStack(
         index: _selectedIndex, // Display the selected page
         children: _pages,

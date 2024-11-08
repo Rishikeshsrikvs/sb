@@ -7,7 +7,7 @@ import 'package:soupboys/shopkeeper/shopprofile/shop_update.dart';
 import 'shop_AccountDetails.dart';
 import 'shop_history.dart';
 import 'shop_menumange.dart';
-import 'shopabout/about_page.dart';
+import 'shopabout/shop_about.dart';
 
 class Profileshop extends StatelessWidget {
   const Profileshop ({super.key});
@@ -82,7 +82,7 @@ class Profileshop extends StatelessWidget {
                     onTap: () {
                        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => AccountDetailsScreen()), // Replace with your actual profile page widget
+          MaterialPageRoute(builder: (context) => const AccountDetailsScreen()), // Replace with your actual profile page widget
         );
                     },
                   ),
@@ -116,7 +116,7 @@ class Profileshop extends StatelessWidget {
                     onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PaymentHistoryScreen()), // Replace with your actual profile page widget
+                          MaterialPageRoute(builder: (context) => const PaymentHistoryScreen()), // Replace with your actual profile page widget
                         );// Handle navigation
                     },
                   ),
@@ -132,13 +132,13 @@ class Profileshop extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.info),
+                    leading: const Icon(Icons.info),
                     title: const Text("About"),
                     trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ShopAboutPage()), // Replace with your actual profile page widget
+                          MaterialPageRoute(builder: (context) => const ShopAbout()), // Replace with your actual profile page widget
                         );
                     },
                   ),
@@ -146,7 +146,7 @@ class Profileshop extends StatelessWidget {
                   ListTile(
                     leading: const Icon(Icons.settings),
                     title: const Text("Settings"),
-                    trailing: Icon(Icons.arrow_forward_ios),
+                    trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: () {
                       Navigator.push(
                           context,

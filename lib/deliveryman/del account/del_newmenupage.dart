@@ -25,7 +25,7 @@ class NewMenuPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'HOTEL NAME',
                 style: TextStyle(
                   color: Colors.white,
@@ -34,7 +34,7 @@ class NewMenuPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-              Text(
+              const Text(
                 'CHINESE • BURGER • SOUP',
                 style: TextStyle(
                   color: Colors.white70,
@@ -53,7 +53,7 @@ class NewMenuPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 8),
-                    Text(
+                    const Text(
                       'Item Name',
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
@@ -61,16 +61,16 @@ class NewMenuPage extends StatelessWidget {
                     TextField(
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF3B2D5F),
+                        fillColor: const Color(0xFF3B2D5F),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,
                         ),
                       ),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       'Upload Pic',
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
@@ -78,10 +78,10 @@ class NewMenuPage extends StatelessWidget {
                     Container(
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Color(0xFF3B2D5F),
+                        color: const Color(0xFF3B2D5F),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Drop Box',
                           style: TextStyle(
@@ -92,7 +92,7 @@ class NewMenuPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       'Description',
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
@@ -101,16 +101,16 @@ class NewMenuPage extends StatelessWidget {
                       maxLines: 4,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF3B2D5F),
+                        fillColor: const Color(0xFF3B2D5F),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,
                         ),
                       ),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       'Price',
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
@@ -119,20 +119,20 @@ class NewMenuPage extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF3B2D5F),
+                        fillColor: const Color(0xFF3B2D5F),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,
                         ),
                       ),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
-                          padding: EdgeInsets.symmetric(horizontal: 60, vertical: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),
@@ -140,7 +140,7 @@ class NewMenuPage extends StatelessWidget {
                         onPressed: () {
                           // Create action
                         },
-                        child: Text(
+                        child: const Text(
                           'Create',
                           style: TextStyle(
                             color: Colors.white,
@@ -156,7 +156,7 @@ class NewMenuPage extends StatelessWidget {
                         onPressed: () {
                           // Discard action
                         },
-                        child: Text(
+                        child: const Text(
                           'Discard',
                           style: TextStyle(
                             color: Colors.white70,

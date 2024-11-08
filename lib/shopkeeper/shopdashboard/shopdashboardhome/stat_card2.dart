@@ -8,7 +8,7 @@ class StatCard2 extends StatelessWidget {
   final Color? textColor;
   final Color? iconColor;
 
-  const StatCard2({
+  const StatCard2({super.key, 
     required this.title,
     required this.count,
     required this.icon,
@@ -21,7 +21,7 @@ class StatCard2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.9, // Full-width card
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
@@ -34,7 +34,7 @@ class StatCard2 extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -53,7 +53,7 @@ class StatCard2 extends StatelessWidget {
                   size: 20,
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(
                 count,
                 style: TextStyle(

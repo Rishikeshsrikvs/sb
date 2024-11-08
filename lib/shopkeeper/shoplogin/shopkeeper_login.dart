@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:soupboys/admin/ad%20dashboard/ad_dashboard.dart';
 import 'package:soupboys/deliveryman/del%20dashboard/del_dashboard.dart';
-
 import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopdashboard/Shop_dashboard.dart';
-
 import 'shopkeeper_creation.dart';
 
 class ShopkeeperLoginPage extends StatefulWidget {
@@ -19,11 +17,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
   final TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
 
-  void _login() {
-    // Simulated user role for testing
-    String role = 'deliveryboy'; // Change this to 'deliveryboy' or 'shopkeeper' to test other cases
-
-    // Navigate based on the hardcoded role
+  void _navigateToDashboard(String role) {
     if (role == 'admin') {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const AdDashboard()),
@@ -35,11 +29,6 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
     } else if (role == 'shopkeeper') {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const ShopDashboard()),
-      );
-    } else {
-      // Handle invalid role case (if necessary)
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Invalid role or user')),
       );
     }
   }
@@ -111,26 +100,14 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              Align(
-                alignment: Alignment.center,
-                child: TextButton(
-                  onPressed: () {
-                    // Forgot password action
-                  },
-                  child: const Text(
-                    "Forgot Your Password?",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
               const SizedBox(height: 20),
+              // Separate login buttons for each role
               ElevatedButton(
-                onPressed: _login,
+                onPressed: () => _navigateToDashboard('admin'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 140,
+                    horizontal: 100,
                     vertical: 15,
                   ),
                   shape: RoundedRectangleBorder(
@@ -138,7 +115,49 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   ),
                 ),
                 child: const Text(
-                  "Log In",
+                  "Log In as Admin",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => _navigateToDashboard('deliveryboy'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.greenAccent,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 100,
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+                child: const Text(
+                  "Log In as Deliveryman",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => _navigateToDashboard('shopkeeper'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orangeAccent,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 100,
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+                child: const Text(
+                  "Log In as Shopkeeper",
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,

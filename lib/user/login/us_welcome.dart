@@ -40,10 +40,10 @@ class _WelcomeLoginPageState extends State<WelcomeLoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                       Text(
                         'WELCOME TO SOUP BOYS',
                         style: TextStyle(
                           fontSize: 20,

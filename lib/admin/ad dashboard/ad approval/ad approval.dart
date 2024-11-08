@@ -20,7 +20,7 @@ class ApprovalData {
   });
 }
 
-// Dummy API Data
+// Dummy data (only data source for now)
 List<ApprovalData> dummyData = [
   ApprovalData(
     hotelName: 'Hotel A',
@@ -40,7 +40,6 @@ List<ApprovalData> dummyData = [
     type: 'Delivery Man',
     date: DateTime.now().subtract(const Duration(days: 1)),
   ),
-  // Add more entries if needed
 ];
 
 class ApprovalScreen extends StatefulWidget {
@@ -51,10 +50,12 @@ class ApprovalScreen extends StatefulWidget {
 class _ApprovalScreenState extends State<ApprovalScreen> {
   String selectedType = 'ShopKeeper';
   bool showToday = true;
+  List<ApprovalData> approvalDataList = dummyData;
 
+  // Filter data based on selected type and date
   List<ApprovalData> get filteredData {
     DateTime today = DateTime.now();
-    return dummyData.where((item) {
+    return approvalDataList.where((item) {
       final matchesType = item.type == selectedType;
       final matchesDate = showToday
           ? item.date.day == today.day &&
@@ -65,9 +66,11 @@ class _ApprovalScreenState extends State<ApprovalScreen> {
     }).toList();
   }
 
+  // Toggle between ShopKeeper and Delivery Man
   void toggleType() {
     setState(() {
-      selectedType = selectedType == 'ShopKeeper' ? 'Delivery Man' : 'ShopKeeper';
+      selectedType =
+          selectedType == 'ShopKeeper' ? 'Delivery Man' : 'ShopKeeper';
     });
   }
 
@@ -77,8 +80,10 @@ class _ApprovalScreenState extends State<ApprovalScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text('Approval',
-        style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'Approval',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Column(
         children: [
@@ -86,9 +91,9 @@ class _ApprovalScreenState extends State<ApprovalScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FilterButton(
-                text: selectedType, // Displays current selected type
+                text: selectedType,
                 isSelected: true,
-                onPressed: toggleType, // Toggle between types on press
+                onPressed: toggleType,
               ),
               FilterButton(
                 text: 'Today',
@@ -121,7 +126,7 @@ class FilterButton extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onPressed;
 
-  FilterButton({
+  const FilterButton({
     required this.text,
     required this.isSelected,
     required this.onPressed,
@@ -130,7 +135,7 @@ class FilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-      icon:const Icon(
+      icon: const Icon(
         Icons.filter_list,
         color: Colors.white,
         size: 18,
@@ -138,12 +143,12 @@ class FilterButton extends StatelessWidget {
       label: Text(text),
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        padding:const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         backgroundColor: isSelected ? Colors.green : Colors.purple,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        textStyle:const TextStyle(color: Colors.white),
+        textStyle: const TextStyle(color: Colors.white),
       ),
     );
   }
@@ -152,12 +157,12 @@ class FilterButton extends StatelessWidget {
 class ApprovalCard extends StatelessWidget {
   final ApprovalData data;
 
-  ApprovalCard({required this.data});
+ApprovalCard({required this.data});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFF303030), // Dark grey background for the card
+      color: const Color(0xFF303030), // Dark grey background for the card
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -172,11 +177,13 @@ class ApprovalCard extends StatelessWidget {
               children: [
                 Text(
                   'Hotel Name:',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   'Location:',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -190,22 +197,22 @@ class ApprovalCard extends StatelessWidget {
                 ),
                 Text(
                   data.location,
-                  style:const TextStyle(color: Colors.white70),
+                  style: const TextStyle(color: Colors.white70),
                 ),
               ],
             ),
             const Divider(color: Colors.white24),
             Text(
               'Owner Name: ${data.ownerName}',
-              style:const TextStyle(color: Colors.white70),
+              style: const TextStyle(color: Colors.white70),
             ),
             Text(
               'Email ID: ${data.email}',
-              style:const TextStyle(color: Colors.white70),
+              style: const TextStyle(color: Colors.white70),
             ),
             Text(
               'Number: ${data.number}',
-              style:const TextStyle(color: Colors.white70),
+              style: const TextStyle(color: Colors.white70),
             ),
             const SizedBox(height: 8),
             Row(
@@ -213,7 +220,8 @@ class ApprovalCard extends StatelessWidget {
               children: [
                 const Text(
                   'STATUS',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Row(
                   children: [
@@ -221,22 +229,16 @@ class ApprovalCard extends StatelessWidget {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
                       ),
-                      child:const Text('Approve', style: TextStyle(color: Colors.black)),
+                      child: const Text('Approve'),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
                       ),
-                      child:const  Text('Deny', style: TextStyle(color: Colors.white)),
+                      child: const Text('Reject'),
                     ),
                   ],
                 ),

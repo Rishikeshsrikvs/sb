@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LanguagePage extends StatefulWidget {
-   const LanguagePage ({super.key});
+class ShopLanguage extends StatefulWidget {
+   const ShopLanguage ({super.key});
   @override
-  _LanguagePageState createState() => _LanguagePageState();
+  _ShopLanguage createState() => _ShopLanguage();
 }
 
-class _LanguagePageState extends State<LanguagePage> {
+class _ShopLanguage extends State<ShopLanguage> {
   final List<String> languages = [
     'Azerbaycanca',
     'Eesti',

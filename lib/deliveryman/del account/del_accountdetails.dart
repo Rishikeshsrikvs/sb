@@ -5,13 +5,13 @@ class DelAccountdetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF660066),
+      backgroundColor: const Color(0xFF660066),
       appBar: AppBar(
-        backgroundColor: Color(0xFF660066),
+        backgroundColor: const Color(0xFF660066),
         elevation: 0,
-        title: Text('Account Details', style: TextStyle(color: Colors.white)),
+        title: const Text('Account Details', style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -110,17 +110,17 @@ class DelAccountdetails extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       "ACCOUNT NO",
                       style: TextStyle(color: Colors.white70),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     TextField(
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.deepPurple.shade900,
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 10,
                         ),
@@ -130,18 +130,18 @@ class DelAccountdetails extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
-                    Text(
+                    const SizedBox(height: 16),
+                    const Text(
                       "ACCOUNT HOLDER NAME",
                       style: TextStyle(color: Colors.white70),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     TextField(
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.deepPurple.shade900,
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 10,
                         ),
@@ -151,7 +151,7 @@ class DelAccountdetails extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
@@ -163,12 +163,12 @@ class DelAccountdetails extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 80,
                             vertical: 15,
                           ),
                         ),
-                        child: Text("CONFIRM"),
+                        child: const Text("CONFIRM"),
                       ),
                     ),
                   ],

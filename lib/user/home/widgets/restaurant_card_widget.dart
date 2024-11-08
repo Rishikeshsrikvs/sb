@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/extra_screenwidgets/rate_hotel.dart';
 import 'package:soupboys/user/home/hotel_menu.dart';
 import 'explore_sort.dart';
 class RestaurantListWidget extends StatelessWidget {
+   const RestaurantListWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         // Add the Container with "Restaurants to Explore" and buttons
         ExploreSection(),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         // Restaurant List
-        RestaurantCardWidget(
+        const RestaurantCardWidget(
           imageUrl: 'assets/images/menuimage.png',
           restaurantName: 'Kim Ling Chinese Restaurant',
           rating: 4.0,
@@ -19,7 +21,7 @@ class RestaurantListWidget extends StatelessWidget {
           location: 'Anna Nagar, Chennai',
           offerText: '₹100 Off Above ₹199',
         ),
-        RestaurantCardWidget(
+        const RestaurantCardWidget(
           imageUrl: 'assets/images/menuimage.png',
           restaurantName: 'The Cascade',
           rating: 4.0,
@@ -28,7 +30,7 @@ class RestaurantListWidget extends StatelessWidget {
           location: 'Nungambakkam, Chennai',
           offerText: '₹100 Off Above ₹199',
         ),
-        RestaurantCardWidget(
+        const RestaurantCardWidget(
           imageUrl: 'assets/images/menuimage.png',
           restaurantName: 'Liza Restaurant',
           rating: 3.9,
@@ -37,7 +39,7 @@ class RestaurantListWidget extends StatelessWidget {
           location: 'Vepery, Chennai',
           offerText: '₹100 Off Above ₹199',
         ),
-        RestaurantCardWidget(
+        const RestaurantCardWidget(
           imageUrl: 'assets/images/menuimage.png',
           restaurantName: 'Liza Restaurant',
           rating: 3.9,
@@ -63,7 +65,8 @@ class RestaurantCardWidget extends StatelessWidget {
   final String location;
   final String offerText;
 
-  RestaurantCardWidget({
+ const RestaurantCardWidget({
+    Key? key, // Add the key parameter here
     required this.imageUrl,
     required this.restaurantName,
     required this.rating,
@@ -71,7 +74,7 @@ class RestaurantCardWidget extends StatelessWidget {
     required this.distance,
     required this.location,
     required this.offerText,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,61 +90,104 @@ class RestaurantCardWidget extends StatelessWidget {
         );
       },
       child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                  image: DecorationImage(
-                    image: AssetImage(imageUrl), // Load image from assets
-                    fit: BoxFit.cover,
-                  ),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: AssetImage(imageUrl),
+                  fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(width: 10),
-              Column(
+            ),
+             const SizedBox(width: 10),
+            Expanded(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    restaurantName,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        restaurantName,
+                        style:const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      // Three-dot menu
+                      PopupMenuButton<String>(
+                        icon:const Icon(Icons.more_vert),
+                        onSelected: (value) {
+                           if (value == "Review") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RateHotelScreen(),
+                                ),
+                              );
+                            }
+                          // Handle menu selection
+                          // print(value);
+                        },
+                        itemBuilder: (BuildContext context) {
+                          return [
+                           const PopupMenuItem(
+                              value: "Add to Favourites",
+                              child: Text("Add to Favourites"),
+                            ),
+                            const PopupMenuItem(
+                              value: "Hide This Restaurant",
+                              child: Text("Hide This Restaurant"),
+                            ),
+                            const PopupMenuItem(
+                              value: "Similar Restaurants",
+                              child: Text("Similar Restaurants"),
+                            ),
+                            const PopupMenuItem(
+                              value: "Review",
+                              child: Text("Review"),
+                            ),
+                          ];
+                        },
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Row(
                     children: [
-                      Icon(Icons.star, color: Colors.green, size: 16),
-                      SizedBox(width: 2),
+                      const Icon(Icons.star, color: Colors.green, size: 16),
+                      const SizedBox(width: 2),
                       Text('$rating'),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(time),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(distance),
                     ],
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     location,
-                    style: TextStyle(color: Colors.black54),
+                    style:const TextStyle(color: Colors.black54),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     offerText,
-                    style: TextStyle(color: Colors.green),
+                    style: const TextStyle(color: Colors.green),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+    )
     );
   }
 }

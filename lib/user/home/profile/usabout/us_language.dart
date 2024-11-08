@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-class LanguagePage extends StatefulWidget {
-   const LanguagePage ({super.key});
+class UsLanguage extends StatefulWidget {
   @override
-  _LanguagePageState createState() => _LanguagePageState();
+  _UsLanguage createState() => _UsLanguage();
 }
 
-class _LanguagePageState extends State<LanguagePage> {
+class _UsLanguage extends State<UsLanguage> {
   final List<String> languages = [
     'Azerbaycanca',
     'Eesti',
@@ -27,17 +26,17 @@ class _LanguagePageState extends State<LanguagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: Color(0xFFA4D40E),
       appBar: AppBar(
-        backgroundColor:Colors.blue.shade600,
+        backgroundColor: Color(0xFFA4D40E),
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Language', style: TextStyle(color: Colors.black)),
+        title: Text('Language', style: TextStyle(color: Colors.black)),
       ),
       body: ListView.builder(
         itemCount: languages.length,
@@ -49,8 +48,8 @@ class _LanguagePageState extends State<LanguagePage> {
               });
             },
             child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              padding: const EdgeInsets.all(12),
+              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: selectedLanguage == languages[index]
                     ? Colors.black

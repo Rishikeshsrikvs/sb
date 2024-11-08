@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SettingDelete extends StatefulWidget {
-   const SettingDelete ({super.key});
+class UsDeletesettings extends StatefulWidget {
+   const UsDeletesettings ({super.key});
   @override
-  _SettingDeleteState createState() => _SettingDeleteState();
+  _UsDeletesettings createState() => _UsDeletesettings();
 }
 
-class _SettingDeleteState extends State<SettingDelete> {
+class _UsDeletesettings extends State<UsDeletesettings> {
   bool enableAll = false; // Example variable to manage notification state
 
   void _showSaveConfirmationDialog() {
@@ -135,7 +135,6 @@ class _SettingDeleteState extends State<SettingDelete> {
       ),
     );
   }
-
 
   Widget _buildNotificationToggle(String title, IconData icon, bool value, ValueChanged<bool> onChanged) {
     return ListTile(

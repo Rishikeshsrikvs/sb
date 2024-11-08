@@ -3,11 +3,12 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'language_page.dart';
-import 'terms_of_service_page.dart';
+import 'package:soupboys/shopkeeper/shopprofile/shopabout/shop_language.dart';
+import 'package:soupboys/shopkeeper/shopprofile/shopabout/shop_terms.dart';
 
-class ShopAboutPage extends StatelessWidget {
-   const ShopAboutPage ({super.key});
+
+class ShopAbout extends StatelessWidget {
+   const ShopAbout ({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +17,12 @@ class ShopAboutPage extends StatelessWidget {
         backgroundColor: Colors.blue.shade600,
         elevation: 0,
         leading: IconButton(
-          icon:const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title:const Text('About', style: TextStyle(color: Colors.black)),
+        title: const Text('About', style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -43,7 +44,7 @@ class ShopAboutPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LanguagePage()),
+                  MaterialPageRoute(builder: (context) => const ShopLanguage()),
                 );
               },
             ),
@@ -53,7 +54,7 @@ class ShopAboutPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const TermsOfServicePage()),
+                  MaterialPageRoute(builder: (context) => const ShopTerms()),
                 );
               },
             ),

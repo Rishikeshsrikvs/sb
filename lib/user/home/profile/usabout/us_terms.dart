@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class TermsOfServicePage extends StatelessWidget {
-  const TermsOfServicePage ({super.key});
+class UsTerms extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.blue.shade600,
+      backgroundColor: const Color(0xFFA4D40E),
       appBar: AppBar(
-        backgroundColor:Colors.blue.shade600,
+        backgroundColor: const Color(0xFFA4D40E),
         elevation: 0,
         leading: IconButton(
-          icon:const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title:const Text('Terms Of Service', style: TextStyle(color: Colors.black)),
+        title: const Text('Terms Of Service', style: TextStyle(color: Colors.black)),
       ),
       body: const Padding(
         padding: EdgeInsets.all(20.0),

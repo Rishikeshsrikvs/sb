@@ -11,9 +11,10 @@ class DelEarnings extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.all(16.0), // Padding inside the container
+              padding:
+                  const EdgeInsets.all(16.0), // Padding inside the container
               decoration: BoxDecoration(
-                color:  Color(0xFF660066), // Violet background color
+                color:const Color(0xFF660066), // Violet background color
                 borderRadius: BorderRadius.circular(12), // Rounded corners
               ),
               child: Column(
@@ -61,52 +62,92 @@ class DelEarnings extends StatelessWidget {
     );
   }
 
-  Widget _buildEarningsHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircularProgressIndicator(
-              value: 0.85,
-              backgroundColor: Colors.blue[100],
-              color: Colors.blue,
-              strokeWidth: 8,
+Widget _buildEarningsHeader() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      // Wrap in a Row and use Spacer to push dropdown to the right
+      Row(
+        children: [
+          const Spacer(), // Pushes the DropdownButton to the right
+          DropdownButton<String>(
+            value: 'Today',
+            dropdownColor: const Color(0xFF15132B),
+            items: <String>['Today', 'This Week', 'This Month'].map((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value, style: const TextStyle(color: Colors.white)),
+              );
+            }).toList(),
+            onChanged: (value) {},
+          ),
+        ],
+      ),
+      const SizedBox(height: 10), // Adds some space before the next row
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                const SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: CircularProgressIndicator(
+                    value: 0.90,
+                    backgroundColor: Colors.transparent,
+                    color: Color(0xFFB2FF00), // Bright green color for the progress
+                    strokeWidth: 10,
+                  ),
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    '80%',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 10),
-            const Text(
-              '₹ 15,000',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+          ),
+          const SizedBox(height: 10),
+          const Column(
+            children: [
+              Text(
+                '₹ 15,000',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              'Total Earnings for Today',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
+              Text(
+                'Total Earnings for Today',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
               ),
-            ),
-          ],
-        ),
-        DropdownButton<String>(
-          value: 'Today',
-          dropdownColor: Color(0xFF15132B),
-          items: <String>['Today', 'This Week', 'This Month']
-              .map((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value, style: TextStyle(color: Colors.white)),
-            );
-          }).toList(),
-          onChanged: (value) {},
-        ),
-      ],
-    );
-  }
+            ],
+          ),
+        ],
+      ),
+    ],
+  );
+}
 
   Widget _buildEarningsStats() {
     return Row(
@@ -121,7 +162,7 @@ class DelEarnings extends StatelessWidget {
 
   Widget _buildStatusCard(String count, String status, Color color) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding:const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(12),
@@ -130,16 +171,16 @@ class DelEarnings extends StatelessWidget {
         children: [
           Text(
             count,
-            style: TextStyle(
+            style:const TextStyle(
               color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             status,
-            style: TextStyle(
+            style:const TextStyle(
               color: Colors.white,
               fontSize: 14,
             ),
@@ -150,7 +191,7 @@ class DelEarnings extends StatelessWidget {
   }
 
   Widget _buildOrderListTitle() {
-    return Text(
+    return const Text(
       'Order List',
       style: TextStyle(
         color: Colors.white,
@@ -170,8 +211,8 @@ class DelEarnings extends StatelessWidget {
     required String profit,
   }) {
     return Card(
-      color: Color(0xFF1E1C38),
-      margin:const  EdgeInsets.symmetric(vertical: 10),
+      color:const Color(0xFF1E1C38),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -190,7 +231,7 @@ class DelEarnings extends StatelessWidget {
                 Expanded(
                   child: Text(
                     'Location: $location',
-                    style:const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -203,14 +244,14 @@ class DelEarnings extends StatelessWidget {
                 Expanded(
                   child: Text(
                     'Customer Name: $customerName',
-                    style: TextStyle(color: Colors.white),
+                    style:const TextStyle(color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Expanded(
                   child: Text(
                     'Phone Number: $phoneNumber',
-                    style:const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -222,7 +263,7 @@ class DelEarnings extends StatelessWidget {
               children: itemList
                   .map((item) => Text(
                         item,
-                        style:const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ))
                   .toList(),
             ),
@@ -232,17 +273,18 @@ class DelEarnings extends StatelessWidget {
               children: [
                 Text(
                   'Total Amount: ₹ $totalAmount',
-                  style: TextStyle(color: Colors.red, fontSize: 16),
+                  style:const TextStyle(color: Colors.red, fontSize: 16),
                 ),
                 Container(
-                  padding:const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
                     'Profit: ₹ $profit',
-                    style: TextStyle(color: Colors.white),
+                    style:const TextStyle(color: Colors.white),
                   ),
                 ),
               ],

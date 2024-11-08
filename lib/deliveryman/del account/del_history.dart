@@ -8,10 +8,10 @@ class PaymentHistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Payment History'),
+        title: const Text('Payment History'),
       ),
       body: ListView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         children: <Widget>[
           PaymentCard(
             orderId: '#5343435',
@@ -73,7 +73,7 @@ class PaymentCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Order ID: $orderId', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('Order ID: $orderId', style: const TextStyle(fontWeight: FontWeight.bold)),
             Text('Customer Name: $customerName'),
             Text('Phone Number: $phoneNumber'),
             Text('Location: $location'),
@@ -83,7 +83,7 @@ class PaymentCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Payment Status: $paymentStatus', style: TextStyle(color: paymentStatus == 'Successful' ? Colors.green : Colors.red)),
-                Icon(Icons.arrow_forward_ios),
+                const Icon(Icons.arrow_forward_ios),
               ],
             ),
           ],

@@ -1,11 +1,40 @@
 import 'package:flutter/material.dart';
 
-class TransactionSummaryCard extends StatelessWidget {
+class TransactionSummaryCard extends StatefulWidget {
+  @override
+  _TransactionSummaryCardState createState() => _TransactionSummaryCardState();
+}
+
+class _TransactionSummaryCardState extends State<TransactionSummaryCard> {
+  String selectedPeriod = 'This Month';
+  int successfulOrders = 585;
+  int unsuccessfulOrders = 123;
+
+  // This function updates the transaction numbers based on the selected period
+  void _updateTransactionCounts(String period) {
+    setState(() {
+      selectedPeriod = period;
+      if (period == 'This Month') {
+        successfulOrders = 585;
+        unsuccessfulOrders = 123;
+      } else if (period == 'Last 3 Months') {
+        successfulOrders = 1800;
+        unsuccessfulOrders = 450;
+      } else if (period == 'Last 6 Months') {
+        successfulOrders = 3200;
+        unsuccessfulOrders = 780;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(6),
-      
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        // Background color for the card
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -13,7 +42,7 @@ class TransactionSummaryCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Transactions Summary',
                 style: TextStyle(
                   color: Colors.white,
@@ -22,34 +51,44 @@ class TransactionSummaryCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Color(0xFF536DFE),
+                  color: const Color(0xFF536DFE),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Row(
-                  children: [
-                    Text(
-                      'This Month',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                child: DropdownButton<String>(
+                  value: selectedPeriod,
+                  dropdownColor: const Color(0xFF1E3D78),
+                  icon: const Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                  underline: Container(), // Removes the default underline
+                  style: const TextStyle(color: Colors.white),
+                  items: <String>['This Month', 'Last 3 Months', 'Last 6 Months']
+                      .map((String period) {
+                    return DropdownMenuItem<String>(
+                      value: period,
+                      child: Text(
+                        period,
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 12),
                       ),
-                    ),
-                    Icon(Icons.keyboard_arrow_down, color: Colors.white),
-                  ],
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    if (newValue != null) {
+                      _updateTransactionCounts(newValue);
+                    }
+                  },
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           // Circle indicators for successful and unsuccessful orders
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildCircleIndicator("585", "Successful Orders", Colors.green),
-              _buildCircleIndicator("123", "Unsuccessful Orders", Colors.red),
+              _buildCircleIndicator(successfulOrders.toString(), "Successful Orders", Colors.green),
+              _buildCircleIndicator(unsuccessfulOrders.toString(), "Unsuccessful Orders", Colors.red),
             ],
           ),
         ],
@@ -62,27 +101,41 @@ class TransactionSummaryCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 120,
+          width: 150,
           height: 120,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: color, width: 4),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(60),
+            border: Border.all(
+              color: Colors.grey.withOpacity(0.4),
+              width: 2,
+            ),
           ),
           child: Center(
-            child: Text(
-              count,
-              style: TextStyle(
-                color: color,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: color, width: 4),
+              ),
+              child: Center(
+                child: Text(
+                  count,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           label,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ],
     );

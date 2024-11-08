@@ -126,7 +126,7 @@ class DelHome extends StatelessWidget {
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Container(
+                                SizedBox(
                                   width: double.infinity,
                                   child: Image.asset(
                                     'assets/images/delsucess.png', // Replace with your image asset path
