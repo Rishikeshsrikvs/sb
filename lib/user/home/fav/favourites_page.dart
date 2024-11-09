@@ -129,7 +129,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                           ),
                           Text(
                             "100 off above ₹999",
-                            style: TextStyle(fontSize: 8, color: Colors.black54),
+                            style: TextStyle(fontSize: 4, color: Colors.black54,),
                           ),
                         ],
                       ),

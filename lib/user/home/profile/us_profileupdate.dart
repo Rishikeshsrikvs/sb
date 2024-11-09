@@ -16,7 +16,7 @@ class UsProfileupdate extends StatelessWidget {
         elevation: 0,
         title: const Text("Your Profile",style: TextStyle(color: Colors.white),),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -26,10 +26,10 @@ class UsProfileupdate extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 40,
               backgroundColor: Colors.black,
-              child: const Text(
+              child: Text(
                 "U",
                 style: TextStyle(color: Colors.white, fontSize: 36),
               ),
@@ -71,34 +71,34 @@ class UsProfileupdate extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
         hintText: hint,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.white70,
           fontSize: 14,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.always,  // Keeps label in its position
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.white,
             width: 1.5,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(7),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.white,
             width: 1.5,
           ),
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       ),
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
     );
   }
 }

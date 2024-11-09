@@ -128,7 +128,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 100,
+                    horizontal: 80,
                     vertical: 15,
                   ),
                   shape: RoundedRectangleBorder(
@@ -149,7 +149,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orangeAccent,
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 100,
+                    horizontal: 80,
                     vertical: 15,
                   ),
                   shape: RoundedRectangleBorder(

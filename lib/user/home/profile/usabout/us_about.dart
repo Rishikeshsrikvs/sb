@@ -18,7 +18,11 @@ class UsAbout extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+           
+            Navigator.pop(context);
+          },
+          
         ),
         title: const Text('About', style: TextStyle(color: Colors.black)),
       ),

@@ -3,6 +3,8 @@ import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/user/home/profile/address_screen.dart';
 import 'package:soupboys/user/home/profile/us_profileupdate.dart';
 import 'package:soupboys/user/home/profile/usabout/us_about.dart';
+import 'package:soupboys/user/home/profile/usfav/us_favorders.dart';
+import 'package:soupboys/user/home/profile/usorder/us_urorder.dart';
 import 'package:soupboys/user/home/profile/ussetting/us_setting.dart';
 
 class UsDrawer extends StatelessWidget {
@@ -21,7 +23,7 @@ class UsDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>UsProfileupdate()),
+                  MaterialPageRoute(builder: (context) => UsProfileupdate()),
                 );
               },
               child: const UserAccountsDrawerHeader(
@@ -50,7 +52,7 @@ class UsDrawer extends StatelessWidget {
               leading: const Icon(Icons.location_on),
               title: const Text('Address book'),
               onTap: () {
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const AddressScreen()),
                 );
@@ -65,12 +67,22 @@ class UsDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.shopping_bag),
               title: const Text('Your Orders'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UsUrorder()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.favorite),
               title: const Text('Favorite Orders'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UsFavorders()),
+                );
+              },
             ),
             const Divider(),
             // More Section
@@ -82,7 +94,7 @@ class UsDrawer extends StatelessWidget {
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const UsAbout()),
                 );
@@ -92,7 +104,7 @@ class UsDrawer extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
               onTap: () {
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const UsSetting()),
                 );
@@ -101,17 +113,88 @@ class UsDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Log out'),
-              onTap: () {},
+              onTap: () {
+                _showLogoutConfirmationDialog(context);
+              },
             ),
-            const Spacer(),
+            const SizedBox(height: 20),
             // Logo at Bottom
-            const LogoImage(height: 80, width: 120)
+            const Align(
+              alignment: Alignment.bottomCenter,
+              child: LogoImage(height: 80, width: 120),
+            ),
           ],
         ),
       ),
     );
   }
+
+  // Logout confirmation dialog
+  void _showLogoutConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+          backgroundColor: Colors.purple.shade900,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Log Out From ?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  onPressed: () {
+                    // Handle logout from current device
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text(
+                    'Current Device',
+                    style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const Divider(color: Colors.white, height: 1),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  onPressed: () {
+                    // Handle logout from all devices
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text(
+                    'All Device',
+                    style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const Divider(color: Colors.white, height: 1),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close dialog
+                  },
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
-
-// Example ProfileUpdatePage
-

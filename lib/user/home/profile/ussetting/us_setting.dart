@@ -9,9 +9,9 @@ class UsSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: Colors.green,
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor: Colors.green,
         elevation: 0,
         title: const Text(
           'Settings',
