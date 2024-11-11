@@ -19,7 +19,7 @@ class _UsNotificationsettings extends State<UsNotificationsettings> {
     builder: (BuildContext context) {
       return Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        backgroundColor: Colors.green.shade900,
+        backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -122,16 +122,16 @@ class _UsNotificationsettings extends State<UsNotificationsettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
         elevation: 0,
         title: const Text(
           'Notification Settings',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -147,7 +147,7 @@ class _UsNotificationsettings extends State<UsNotificationsettings> {
               children: [
                 const Text(
                   'Enable All',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
                 Switch(
                   value: enableAll,
@@ -169,7 +169,7 @@ class _UsNotificationsettings extends State<UsNotificationsettings> {
             const SizedBox(height: 20),
             const Text(
               'Notification Preferences',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             _buildNotificationToggle('Mobile', Icons.phone_android, mobileNotifications, (value) {
@@ -225,10 +225,10 @@ class _UsNotificationsettings extends State<UsNotificationsettings> {
   Widget _buildNotificationToggle(String title, IconData icon, bool value, ValueChanged<bool> onChanged) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(icon, color: Colors.black),
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white, fontSize: 16),
+        style: const TextStyle(color: Colors.black, fontSize: 16),
       ),
       trailing: Switch(
         value: value,

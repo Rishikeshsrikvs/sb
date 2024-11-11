@@ -6,8 +6,8 @@ class SoupContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(20.0),
+      decoration: const BoxDecoration(
         color: Color(0xFF0E3930),
          borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.0),  // Rounded corner on the top-left
@@ -18,7 +18,7 @@ class SoupContainer extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'No Matter The Weather, Soup Always Hits \n The Broth Spot!',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -27,14 +27,14 @@ class SoupContainer extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: Color(0xFF0E3930),
+              color: const Color(0xFF0E3930),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: LogoImage(height: 80, width: 120)
+            child: const LogoImage(height: 80, width: 120)
           ),
         ],
       ),

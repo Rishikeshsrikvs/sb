@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/home/home_page.dart';
 
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[200],
+      backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: Colors.green[700],
+        backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
         title: const Text('Delivery to'),
         actions: [
           TextButton(
             onPressed: () {
-              // Implement location change
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
             },
             child: const Text(
               'AVADI',
@@ -38,14 +42,14 @@ class CartScreen extends StatelessWidget {
             child: Card(
               color: Colors.green[100],
               child: ListTile(
-                leading: Icon(Icons.local_offer, color: Colors.red),
+                leading: const Icon(Icons.local_offer, color: Colors.red),
                 title: const Text(
                   'Save Extra By Applying Coupons On Every Order',
                   style: TextStyle(fontSize: 12),
                 ),
                 subtitle: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Enter coupon code',
@@ -54,7 +58,7 @@ class CartScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     ElevatedButton(
                       onPressed: () {
                         // Apply coupon code
@@ -91,8 +95,8 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   'GRAND TOTAL: ₹400',
                   style: TextStyle(
@@ -148,14 +152,14 @@ class CartItemWidget extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                              icon: Icon(Icons.remove_circle_outline),
+                              icon: const Icon(Icons.remove_circle_outline),
                               onPressed: () {
                                 // Decrease quantity
                               },
                             ),
                             const Text('1'), // Quantity value
                             IconButton(
-                              icon: Icon(Icons.add_circle_outline),
+                              icon: const Icon(Icons.add_circle_outline),
                               onPressed: () {
                                 // Increase quantity
                               },
@@ -163,7 +167,7 @@ class CartItemWidget extends StatelessWidget {
                           ],
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete, color: Colors.red),
+                          icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
                             // Remove item
                           },
@@ -185,7 +189,7 @@ class CartItemWidget extends StatelessWidget {
 class OrderSummarySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         SummaryTile(icon: Icons.delivery_dining, title: 'Delivery in 24 mins'),
         SummaryTile(icon: Icons.home, title: 'Delivery at Home'),
@@ -217,7 +221,7 @@ class SummaryTile extends StatelessWidget {
       child: ListTile(
         leading: Icon(icon, color: Colors.black),
         title: Text(title),
-        trailing: trailing ?? Icon(Icons.arrow_forward_ios, size: 16),
+        trailing: trailing ?? const Icon(Icons.arrow_forward_ios, size: 16),
         onTap: () {
           // Navigate to respective screens or perform actions
         },

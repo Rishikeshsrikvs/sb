@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/user/home/home_page.dart';
 
 
 class FavoritesScreen extends StatefulWidget {
@@ -26,21 +27,26 @@ class _FavoritesScreenState extends State<FavoritesScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreenAccent,
+      backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
         elevation: 0,
         title: const Text("Favourites", style: TextStyle(color: Colors.black)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Go back to the previous screen
+             Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+            // Navigator.pop(context); // Go back to the previous screen
           },
         ),
+        
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
           child: Container(
-            color: Colors.lightGreen,
+            color:const Color.fromRGBO(174, 220, 26, 1),
             child: TabBar(
               padding: const EdgeInsets.all(8),
               controller: _tabController,
@@ -52,7 +58,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
               unselectedLabelColor: Colors.black,
               tabs: const [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
                   child: Tab(text: "RESTAURANT"),
                 ),
                 Padding(
@@ -117,9 +123,9 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                     trailing: Container(
                       decoration: BoxDecoration(
                         color: Colors.lightGreen.shade100,
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(2),
                       ),
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(6),
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -221,7 +227,9 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 12),
                               ),
-                              child:const Text("Add To Cart"),
+                              child:const Text("Add To Cart",style: TextStyle(
+                                color: Colors.white
+                              ),),
                             ),
 
                         ],

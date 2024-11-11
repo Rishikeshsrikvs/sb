@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UsDeletesettings extends StatefulWidget {
-   const UsDeletesettings ({super.key});
+  const UsDeletesettings({super.key});
   @override
   _UsDeletesettings createState() => _UsDeletesettings();
 }
@@ -15,16 +15,16 @@ class _UsDeletesettings extends State<UsDeletesettings> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          backgroundColor: Colors.green.shade900,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          backgroundColor: Colors.blue,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-
-                  'assets/images/deleteaccount.png', 
+                  'assets/images/deleteaccount.png',
                   // Replace with your image asset path
                   height: 100,
                   width: 100,
@@ -39,18 +39,22 @@ class _UsDeletesettings extends State<UsDeletesettings> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4)),
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();
                     setState(() {
-                      enableAll = true; // Update state when enabling notifications
+                      enableAll =
+                          true; // Update state when enabling notifications
                     });
                   },
                   child: const Text(
                     'Yes',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -74,16 +78,16 @@ class _UsDeletesettings extends State<UsDeletesettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade600,
+      backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
         elevation: 0,
         title: const Text(
           'Account Settings',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -97,7 +101,10 @@ class _UsDeletesettings extends State<UsDeletesettings> {
             const SizedBox(height: 20),
             const Text(
               'Delete Account',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             // Build your notification toggle switches here, if needed
@@ -107,12 +114,13 @@ class _UsDeletesettings extends State<UsDeletesettings> {
             //     enableAll = value;
             //   });
             // }),
-             const Spacer(),
+            const Spacer(),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
@@ -136,7 +144,8 @@ class _UsDeletesettings extends State<UsDeletesettings> {
     );
   }
 
-  Widget _buildNotificationToggle(String title, IconData icon, bool value, ValueChanged<bool> onChanged) {
+  Widget _buildNotificationToggle(
+      String title, IconData icon, bool value, ValueChanged<bool> onChanged) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(icon, color: Colors.white),

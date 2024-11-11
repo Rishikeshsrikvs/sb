@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soupboys/user/history_widgets/reorder/notaval.dart';
 import 'package:soupboys/user/history_widgets/reorder/reorder.dart';
+import 'package:soupboys/user/home/home_page.dart';
 
 
 
@@ -24,10 +25,19 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 7, 116, 12),
+      backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 7, 116, 12),
+        backgroundColor: const  Color.fromRGBO(174, 220, 26, 1),
         title: const Text("History"),
+         leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+           Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),        
+                );
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -125,8 +135,8 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
 
   Widget hotelInfoSection(String hotelName, String hotelLocation) {
     return Container(
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 7, 24, 8),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 7, 24, 8),
       ),
       padding: const EdgeInsets.all(7),
       child: Row(

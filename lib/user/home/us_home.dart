@@ -29,7 +29,7 @@ class UsHome extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SearchBarWidget(),
+           
               const SizedBox(height: 16),
               OfferBannerWidget(),
               const SizedBox(height: 16),

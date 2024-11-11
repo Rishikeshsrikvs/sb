@@ -9,16 +9,16 @@ class UsSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: const Color.fromRGBO(174, 220, 26, 1),
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor:const Color.fromRGBO(174, 220, 26, 1),
         elevation: 0,
         title: const Text(
           'Settings',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -30,9 +30,9 @@ class UsSetting extends StatelessWidget {
           ListTile(
             title: const Text(
               'Notification Settings',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(color: Colors.black, fontSize: 16),
             ),
-            trailing: Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
+            trailing: Icon(Icons.arrow_forward_ios, color: Colors.black, size: 16),
             onTap: () {
                Navigator.push(
                           context,
@@ -44,9 +44,9 @@ class UsSetting extends StatelessWidget {
           ListTile(
             title: const Text(
               'Account Settings',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(color: Colors.black, fontSize: 16),
             ),
-            trailing: Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
+            trailing: Icon(Icons.arrow_forward_ios, color: Colors.black, size: 16),
             onTap: () {
                Navigator.push(
                           context,

@@ -10,7 +10,7 @@ class CategoryButtonsWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Text "WHAT'S ON YOUR MIND?"
-            Text(
+            const Text(
               "WHAT'S ON YOUR MIND ?",
               style: TextStyle(
                 fontSize: 16,
@@ -19,7 +19,7 @@ class CategoryButtonsWidget extends StatelessWidget {
                 letterSpacing: 1.2,
               ),
             ),
-            SizedBox(width: 10), // Space between text and line
+            const SizedBox(width: 10), // Space between text and line
             // Gradient Line
             Expanded(
               child: Container(
@@ -36,7 +36,7 @@ class CategoryButtonsWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 20), // Space between text and buttons
+        const SizedBox(height: 20), // Space between text and buttons
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -44,8 +44,8 @@ class CategoryButtonsWidget extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFAEDC1A),
-                fixedSize: Size(180, 50), // Set a fixed size for both buttons
+                backgroundColor: const Color(0xFFAEDC1A),
+                fixedSize: const Size(180, 50), // Set a fixed size for both buttons
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4),
@@ -60,7 +60,7 @@ class CategoryButtonsWidget extends StatelessWidget {
                     child: Container(
                       height: 24, // Set the height for the image
                       width: 24,  // Set the width for the image
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/veg.png'), // Background image for VEG
                           fit: BoxFit.contain, // Image scaled to fit
@@ -69,7 +69,7 @@ class CategoryButtonsWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       'VEG',
                       style: TextStyle(
@@ -86,8 +86,8 @@ class CategoryButtonsWidget extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF0F4D44),
-                fixedSize: Size(180, 50), // Set a fixed size for both buttons
+                backgroundColor: const Color(0xFF0F4D44),
+                fixedSize: const Size(180, 50), // Set a fixed size for both buttons
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4),
@@ -102,7 +102,7 @@ class CategoryButtonsWidget extends StatelessWidget {
                     child: Container(
                       height: 50, // Set the height for the image
                       width: 50, // Set the width for the image
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/noveg.png'), // Background image for NON-VEG
                           fit: BoxFit.contain, // Image scaled to fit
@@ -111,7 +111,7 @@ class CategoryButtonsWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       'NON-VEG',
                       style: TextStyle(
