@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soupboys/socket_services.dart';
 import 'package:soupboys/splashscreen/splashscreen.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class SoupBoys extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Splashscreen(),
+      // home:  SocketIoExample(),
     );
   }
 }
