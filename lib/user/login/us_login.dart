@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.white,
           elevation: 0,
           centerTitle: true,
-          title: Row(
+          title: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LogoImage(height: 100, width: 100),

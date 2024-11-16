@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:soupboys/socket_services.dart';
 import 'package:soupboys/splashscreen/splashscreen.dart';
+// import 'package:soupboys/socket_services.dart';
+// import 'package:soupboys/splashscreen/splashscreen.dart';
+import 'package:soupboys/user/MyScreen.dart';
 
 void main() {
   runApp(const SoupBoys());

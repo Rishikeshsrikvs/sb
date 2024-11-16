@@ -1,39 +1,63 @@
+// shopkeeper_login_page.dart
 import 'package:flutter/material.dart';
+import 'package:soupboys/logo/logo_image.dart';
+import 'package:soupboys/services/api_service.dart';
+
 import 'package:soupboys/admin/ad%20dashboard/ad_dashboard.dart';
 import 'package:soupboys/deliveryman/del%20dashboard/del_dashboard.dart';
-import 'package:soupboys/logo/logo_image.dart';
 import 'package:soupboys/shopkeeper/shopdashboard/Shop_dashboard.dart';
-import 'shopkeeper_creation.dart';
+import 'package:soupboys/shopkeeper/shoplogin/shopkeeper_creation.dart';
 
 class ShopkeeperLoginPage extends StatefulWidget {
-  const ShopkeeperLoginPage({super.key});
+  const ShopkeeperLoginPage({Key? key}) : super(key: key);
 
   @override
-  _ShopkeeperLoginPageState createState() => _ShopkeeperLoginPageState();
+  _ShopkeeperLoginPage createState() => _ShopkeeperLoginPage();
 }
 
-class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
+class _ShopkeeperLoginPage extends State<ShopkeeperLoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
 
-  void _navigateToDashboard(String role) {
-    if (role == 'admin') {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const AdDashboard()),
+  Future<void> _login() async {
+    try {
+      final response = await ApiService.postRequest(
+        '/api/split/login', // Specify endpoint here
+        {
+          'email': emailController.text,
+          'password': passwordController.text,
+        },
       );
-    } else if (role == 'deliveryboy') {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const DelDashboard()),
-      );
-    } else if (role == 'shopkeeper') {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const ShopDashboard()),
+
+      final role = response['role'];
+
+      if (role == 'Admin') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => AdDashboard()),
+        );
+      } else if (role == 'Delivary') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const DelDashboard()),
+        );
+      } else if (role == 'Shopkeeper') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const ShopDashboard()),
+        );
+      } else {
+        throw Exception('Invalid role');
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed: $e')),
       );
     }
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1A1D28),
@@ -88,7 +112,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   children: [
                     _buildTextField(
                       controller: emailController,
-                      hintText: "shopkeeper@gmail.com",
+                      hintText: "example@gmail.com",
                       icon: Icons.email,
                     ),
                     _buildTextField(
@@ -100,10 +124,22 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
+              Align(
+                alignment: Alignment.center,
+                child: TextButton(
+                  onPressed: () {
+                    // Forgot password action
+                  },
+                  child: const Text(
+                    "Forgot Your Password?",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
               const SizedBox(height: 20),
-              // Separate login buttons for each role
               ElevatedButton(
-                onPressed: () => _navigateToDashboard('admin'),
+                onPressed: _login,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   padding: const EdgeInsets.symmetric(
@@ -115,49 +151,7 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
                   ),
                 ),
                 child: const Text(
-                  "Log In as Admin",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () => _navigateToDashboard('deliveryboy'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.greenAccent,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 80,
-                    vertical: 15,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                ),
-                child: const Text(
-                  "Log In as Deliveryman",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () => _navigateToDashboard('shopkeeper'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orangeAccent,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 80,
-                    vertical: 15,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                ),
-                child: const Text(
-                  "Log In as Shopkeeper",
+                  "Log In",
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,
@@ -217,3 +211,9 @@ class _ShopkeeperLoginPageState extends State<ShopkeeperLoginPage> {
     );
   }
 }
+
+
+
+
+
+ 
