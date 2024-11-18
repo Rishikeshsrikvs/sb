@@ -15,7 +15,7 @@ class Getstarted extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Logo(height: 400, width: 400), // Use const for Logo if height and width are known at compile-time
-            const SizedBox(height: 250),
+            const SizedBox(height: 30),
             TextButton(
               onPressed: () {
                 // Use context from the build method

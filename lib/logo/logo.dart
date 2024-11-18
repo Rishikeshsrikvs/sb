@@ -22,7 +22,7 @@ class Logo extends StatelessWidget {
               width: width,
               height: height,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 1),
             Text(
               "SAVOR HEALTH, DELIVERED FAST!",
               style: TextStyle(

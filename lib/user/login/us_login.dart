@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                 // Navigate to OTP Verification Page (replace with your OTP page if needed)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const OTPVerificationPage()),
+                  MaterialPageRoute(builder: (context) => OTPVerificationPage(mobileNumber: _phoneController.text)),
                 );
               },
               style: ElevatedButton.styleFrom(
